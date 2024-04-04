@@ -1,0 +1,24 @@
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center; /* Ensures content is centered, especially for narrower screens */
+  }
+  
+  .boxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: fit-content;
+    transition: grid-template-columns 0.3s ease-in; /* Smooth transition for layout changes */
+  }
+  
+  /* Adjust the media query breakpoint as needed for your design */
+  @media (max-width: 768px) {
+    .boxes {
+      grid-template-columns: 1fr; /* Stack boxes vertically on smaller screens */
+    }
+  }
+  

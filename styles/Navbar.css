@@ -1,0 +1,27 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 0;
+    border-bottom: 2px solid #000000;
+    height: 60px;
+}
+
+.links {
+    border: 1px solid black;
+    padding: 1rem;
+    border-radius: 1rem;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.2)
+}
+
+span {
+    padding: 2rem;
+}
