@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 import "../styles/Box.css";
 
 export default function Box({ color, children, onClick, animationVariant }) {
@@ -23,6 +24,9 @@ export default function Box({ color, children, onClick, animationVariant }) {
     },
   };
 
+  // Use React's useState hook to manage the pointerEvents state
+  const [pointerEvents, setPointerEvents] = useState("auto");
+
   // Correctly applying the selected variant
   const selectedVariant = variants[animationVariant] || variants.fromTop; // Default to 'fromTop' if not specified
 
@@ -37,11 +41,14 @@ export default function Box({ color, children, onClick, animationVariant }) {
         borderRadius: "32px", 
         overflow: "hidden", 
         background: color,
+        pointerEvents: pointerEvents, // Apply the pointerEvents state to style
       }}
       initial={selectedVariant.initial}
       animate={selectedVariant.animate}
       transition={{ duration: 1.5, ease: "easeOut" }}
       onClick={onClick}
+      onAnimationStart={() => setPointerEvents("none")} // Disable pointer events when animation starts
+      onAnimationComplete={() => setPointerEvents("auto")} // Re-enable pointer events after animation
     >
       {children}
     </motion.div>
