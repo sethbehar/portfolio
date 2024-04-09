@@ -3,11 +3,18 @@ import '../styles/Spotify.css'
 
 const Spotify = () => {
     return (
-        <div className='both-boxes'>
+        <div className='container'>
+            <div className='title-logo'>
+            <Image className="icon" src="spotify.svg" alt="spotify" width={10} height={10} />
+            <h3>Current Favorite Song</h3>
+            </div>
+        </div>
+    );
+};
 
-            <div className="container">
-                <Image className="spotify-logo" src="/spotify.svg" alt="Spotify Logo" width={250} height={250} />
-                <div className='music-bars'>
+export default Spotify;
+
+{/* <div className='music-bars'>
                     <div class="now playing" id="music">
                         <span class="bar n1">A</span>
                         <span class="bar n2">B</span>
@@ -16,15 +23,4 @@ const Spotify = () => {
                         <span class="bar n5">E</span>
                     </div>
                     <p className='now-playing-text'>Now playing</p>
-                </div>
-            </div>
-            <div className='song-artist-box'>
-                <h2 className='song'>One of These Nights</h2>
-                <h3 className='artist'>Eagles</h3>
-
-            </div>
-        </div>
-    );
-};
-
-export default Spotify;
+                </div> */}

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useState } from 'react';
 import "../styles/Box.css";
 
-export default function Box({ color, children, onClick, animationVariant }) {
+export default function Box({ color, children, onClick, animationVariant, width, height }) {
   // Animation variants for sliding from different directions
   const variants = {
     fromTop: {
@@ -34,8 +34,8 @@ export default function Box({ color, children, onClick, animationVariant }) {
     <motion.div
       className='box'
       style={{
-        height: "15rem",
-        width: "25rem",
+        height: height,
+        width: width,
         boxShadow: "10px 10px 28px -1px rgba(0,0,0,0.1)",
         padding: "36px 42px", 
         borderRadius: "32px", 

@@ -1,0 +1,29 @@
+.title-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    color: black;
+  } 
+  
+  h3 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 140%
+  }
+  
+    .chess-logo {
+      width: 100px;
+      height: 75px;
+      position: relative;
+      right: 35%;
+      padding: 2rem;
+    }
+
+.chess-stats {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+  

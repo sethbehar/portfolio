@@ -1,27 +1,16 @@
+.title-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  color: black;
+} 
 
-  body {
-    font-weight: 100;
-    font-size: 16px;
-    color: #333;
-    text-align: center;
-    background: #eee;
-  }
-
-  .both-boxes {
-    display: flex;
-  }
-
-  .song-artist-box {
-    color: black;
-  }
-
-    .song, .artist {
-    font-size: 24px;
-    font-family: "Moranga Bold";
-    line-height: 32px;
-    font-weight: 400;
-    color: rgb(13, 17, 23);
-  }
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 140%
+}
 
   .spotify-logo {
     width: 100px;
@@ -35,11 +24,6 @@
     display: flex;
     flex-direction: row;
     gap: 5px;
-  }
-
-  .now-playing-text {
-    color: #1DB954;
-    margin-block-start: auto;
   }
 
   .now.playing .bar {

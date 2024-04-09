@@ -7,6 +7,7 @@ import Image from "next/image";
 import Github from "@/components/Github";
 import Media from "@/components/Media";
 import Spotify from "@/components/Spotify";
+import Chess from "@/components/Chess"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(null);
@@ -23,7 +24,7 @@ export default function Home() {
           <h1 className="section-title">About</h1>
         </div>
         <p className="about-text no-select">
-          <WordAnimation text="hi i’m seth, a developer from Florida. I am a senior at the University of Florida studying CS. I am passionate about web apps, startups, sql, and youtube tutorials. I love music and chess." />
+          <WordAnimation text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
         </p>
       </Box>
 
@@ -42,18 +43,37 @@ export default function Home() {
         </div>
       </Box>
 
-      <Box color="white" animationVariant="fromBottom">
+      <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
         <div className="title-icon no-select">
           <Image className="icon" src="source-control.svg" width={10} height={10} />
           <h1 className="section-title">Contact</h1>
         </div>
-        <Media />
+        <div className="contact-info-logos">
+          <a href="https://www.linkedin.com/in/seth-behar/" target="_blank" rel="noopener noreferrer">
+            <Image className="icon-logo" src="linkedin.svg" width={10} height={10} />
+          </a>
+          <a href="https://github.com/sethbehar" target="_blank" rel="noopener noreferrer">
+            <Image className="icon-logo" src="github.svg" width={10} height={10} />
+          </a>
+          <Image className="icon-logo" src="gmail.svg" width={10} height={10} />
+        </div>
       </Box>
 
-      <Box color="white" onClick={() => handleClick('skills')} animationVariant="fromRight">
-      <div className="title-icon no-select">
+      <Box color="white" onClick={() => handleClick('skills')} animationVariant="fromRight" height="9rem" width="30rem">
+        <div className="title-icon no-select">
           <Image className="icon" src="coding.svg" width={10} height={10} />
           <h1 className="section-title">Skills</h1>
+        </div>
+        <div className="skills-logos">
+          <Image className="icon-logo" src="sql.svg" width={10} height={10} />
+          <Image className="icon-logo" src="firebase.svg" width={10} height={10} />
+          <Image className="icon-logo" src="javascript.svg" width={10} height={10} />
+          <Image className="icon-logo" src="python.svg" width={10} height={10} />
+          <Image className="icon-logo" src="mongo.svg" width={10} height={10} />
+          <Image className="icon-logo" src="node.svg" width={10} height={10} />
+          <Image className="icon-logo" src="css.svg" width={10} height={10} />
+          <Image className="icon-logo" src="C++.svg" width={10} height={10} />
+          <Image className="icon-logo" src="react.svg" width={10} height={10} />
         </div>
       </Box>
     </>
@@ -65,7 +85,18 @@ export default function Home() {
         return (
           <>
             <Box color="white">
-              <p>About box 1</p>
+              <div className="favorite-language-box">
+                <div className="title-logo">
+                  <Image className="icon" src="coding.svg" width={10} height={10} />
+                  <h3>Favorite Tech Stack</h3>
+                </div>
+                <div className="lanugage-logo">
+                  <Image className="icon" src="postgres.svg" width={10} height={10} />
+                  <Image className="icon" src="javascript.svg" width={10} height={10} />
+                  <Image className="icon" src="node.svg" width={10} height={10} />
+                  <Image className="icon" src="react.svg" width={10} height={10} />
+                </div>
+              </div>
             </Box>
 
             <Box color="white">
@@ -77,7 +108,7 @@ export default function Home() {
             </Box>
 
             <Box color="white">
-              <p>About box 4</p>
+              <Chess />
             </Box>
 
             <button className="back-btn" onClick={() => { setActiveSection(null) }}>go back</button>
