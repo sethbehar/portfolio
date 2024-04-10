@@ -20,7 +20,7 @@ const Github = () => {
   }, []);
 
   return (
-    <div className='activity'>
+    <div className='activity no-select'>
       <div className='title-logo'>
       <Image className="icon-logo" src="github.svg" alt="git" width={10} height={10} />
         <h3>Recent Github Activity</h3>

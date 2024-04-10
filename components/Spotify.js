@@ -3,10 +3,15 @@ import '../styles/Spotify.css'
 
 const Spotify = () => {
     return (
-        <div className='container'>
+        <div className='container no-select'>
             <div className='title-logo'>
-            <Image className="icon" src="spotify.svg" alt="spotify" width={10} height={10} />
-            <h3>Current Favorite Song</h3>
+                <Image className="icon" src="spotify.svg" alt="spotify" width={10} height={10} />
+                <h3>Currently Listening to...</h3>
+            </div>
+            <div>
+                <h2>Quittin' Time - Live</h2>
+                <h3>Zach Bryan</h3>
+                {/* <p>All My Homies Hate TicketMaster (Live from Red Rocks)</p> */}
             </div>
         </div>
     );

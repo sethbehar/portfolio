@@ -59,12 +59,12 @@ export default function Home() {
         </div>
       </Box>
 
-      <Box color="white" onClick={() => handleClick('skills')} animationVariant="fromRight" height="9rem" width="30rem">
+      <Box className="no-select" color="white" animationVariant="fromRight" height="9rem" width="30rem">
         <div className="title-icon no-select">
           <Image className="icon" src="coding.svg" width={10} height={10} />
           <h1 className="section-title">Skills</h1>
         </div>
-        <div className="skills-logos">
+        <div className="skills-logos no-select">
           <Image className="icon-logo" src="sql.svg" width={10} height={10} />
           <Image className="icon-logo" src="firebase.svg" width={10} height={10} />
           <Image className="icon-logo" src="javascript.svg" width={10} height={10} />
@@ -85,16 +85,16 @@ export default function Home() {
         return (
           <>
             <Box color="white">
-              <div className="favorite-language-box">
+              <div className="favorite-language-box no-select">
                 <div className="title-logo">
                   <Image className="icon" src="coding.svg" width={10} height={10} />
                   <h3>Favorite Tech Stack</h3>
                 </div>
                 <div className="lanugage-logo">
-                  <Image className="icon" src="postgres.svg" width={10} height={10} />
-                  <Image className="icon" src="javascript.svg" width={10} height={10} />
-                  <Image className="icon" src="node.svg" width={10} height={10} />
-                  <Image className="icon" src="react.svg" width={10} height={10} />
+                  <Image className="icon no-select" src="postgres.svg" width={10} height={10} />
+                  <Image className="icon no-select" src="javascript.svg" width={10} height={10} />
+                  <Image className="icon no-select" src="node.svg" width={10} height={10} />
+                  <Image className="icon no-select" src="react.svg" width={10} height={10} />
                 </div>
               </div>
             </Box>
@@ -137,27 +137,7 @@ export default function Home() {
           </>
 
         );
-      case 'skills':
-        return (
-          <>
-            <Box color="white">
-              <p>skills box 1</p>
-            </Box>
 
-            <Box color="white">
-              <p>skills box 2</p>
-            </Box>
-
-            <Box color="white">
-              <p>skills box 3</p>
-            </Box>
-
-            <Box color="white">
-              <p>skills box 4</p>
-            </Box>
-            <button className="back-btn" onClick={() => { setActiveSection(null) }}>go back</button>
-          </>
-        );
       default:
         return null;
     }
