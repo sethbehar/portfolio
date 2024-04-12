@@ -11,26 +11,30 @@ import Chess from "@/components/Chess"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(null);
-
+  
   const handleClick = (section) => {
     setActiveSection(section);
   };
+
+  const renderMailForm = () => {
+
+  }
 
   const renderInitialBoxes = () => (
     <>
       <Box color="white" onClick={() => handleClick('about')} animationVariant="fromLeft">
         <div className="title-icon no-select">
-          <Image className="icon" src="user.svg" width={10} height={10} />
+          <Image className="icon" src="user.svg" alt="img" width={10} height={10} />
           <h1 className="section-title">About</h1>
         </div>
         <p className="about-text no-select">
-          <WordAnimation text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
+          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
         </p>
       </Box>
 
       <Box color="white" onClick={() => handleClick('experience')} animationVariant="fromTop">
         <div className="title-icon no-select">
-          <Image className="icon" src="info.svg" width={10} height={10} />
+          <Image className="icon" src="info.svg" alt="img" width={10} height={10} />
           <h1 className="section-title">Experience</h1>
         </div>
         <div className='logo-container no-select'>
@@ -45,35 +49,35 @@ export default function Home() {
 
       <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
         <div className="title-icon no-select">
-          <Image className="icon" src="source-control.svg" width={10} height={10} />
+          <Image className="icon" src="source-control.svg" alt="img" width={10} height={10} />
           <h1 className="section-title">Contact</h1>
         </div>
-        <div className="contact-info-logos">
+        <div className="contact-info-logos no-select">
           <a href="https://www.linkedin.com/in/seth-behar/" target="_blank" rel="noopener noreferrer">
-            <Image className="icon-logo" src="linkedin.svg" width={10} height={10} />
+            <Image className="icon-logo" src="linkedin.svg" alt="img" width={10} height={10} />
           </a>
           <a href="https://github.com/sethbehar" target="_blank" rel="noopener noreferrer">
-            <Image className="icon-logo" src="github.svg" width={10} height={10} />
+            <Image className="icon-logo" src="github.svg" alt="img" width={10} height={10} />
           </a>
-          <Image className="icon-logo" src="gmail.svg" width={10} height={10} />
+          <Image onClick={() => { renderMailForm }} className="icon-logo" src="gmail.svg" alt="img" width={10} height={10} />
         </div>
       </Box>
 
       <Box className="no-select" color="white" animationVariant="fromRight" height="9rem" width="30rem">
         <div className="title-icon no-select">
-          <Image className="icon" src="coding.svg" width={10} height={10} />
+          <Image className="icon" src="coding.svg" alt="img" width={10} height={10} />
           <h1 className="section-title">Skills</h1>
         </div>
         <div className="skills-logos no-select">
-          <Image className="icon-logo" src="sql.svg" width={10} height={10} />
-          <Image className="icon-logo" src="firebase.svg" width={10} height={10} />
-          <Image className="icon-logo" src="javascript.svg" width={10} height={10} />
-          <Image className="icon-logo" src="python.svg" width={10} height={10} />
-          <Image className="icon-logo" src="mongo.svg" width={10} height={10} />
-          <Image className="icon-logo" src="node.svg" width={10} height={10} />
-          <Image className="icon-logo" src="css.svg" width={10} height={10} />
-          <Image className="icon-logo" src="C++.svg" width={10} height={10} />
-          <Image className="icon-logo" src="react.svg" width={10} height={10} />
+          <Image className="icon-logo" src="sql.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="firebase.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="javascript.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="python.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="mongo.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="node.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="css.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="C++.svg" alt="img" width={10} height={10} />
+          <Image className="icon-logo" src="react.svg" alt="img" width={10} height={10} />
         </div>
       </Box>
     </>
@@ -87,14 +91,14 @@ export default function Home() {
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
-                  <Image className="icon" src="coding.svg" width={10} height={10} />
+                  <Image className="icon" src="coding.svg" alt="img" width={10} height={10} />
                   <h3>Favorite Tech Stack</h3>
                 </div>
                 <div className="lanugage-logo">
-                  <Image className="icon no-select" src="postgres.svg" width={10} height={10} />
-                  <Image className="icon no-select" src="javascript.svg" width={10} height={10} />
-                  <Image className="icon no-select" src="node.svg" width={10} height={10} />
-                  <Image className="icon no-select" src="react.svg" width={10} height={10} />
+                  <Image className="icon no-select shadow" src="postgres.svg" alt="img" width={10} height={10} />
+                  <Image className="icon no-select shadow" src="javascript.svg" alt="img" width={10} height={10} />
+                  <Image className="icon no-select shadow" src="node.svg" alt="img" width={10} height={10} />
+                  <Image className="icon no-select shadow" src="react.svg" alt="img" width={10} height={10} />
                 </div>
               </div>
             </Box>
@@ -111,29 +115,67 @@ export default function Home() {
               <Chess />
             </Box>
 
-            <button className="back-btn" onClick={() => { setActiveSection(null) }}>go back</button>
+            <Image onClick={() => { setActiveSection(null) }} className="back-btn" src="back.svg" alt="back" width={10} height={10} />
           </>
         );
       case 'experience':
         return (
           <>
             <Box color="white">
-              <p>experience box 1</p>
+              <div className="favorite-language-box no-select">
+                <div className="title-logo">
+                  <Image className="icon no-select " src="/ebacon.png" alt="img" width={10} height={10} />
+                  <h3>eBacon</h3>
+                </div>
+                <div className="text-area-column">
+                  <p>Software Developer Intern <span>May 2023 - August 2023</span></p>
+                  <p>Automated client portfolio rebalancing via a custom SQL sproc</p>
+                  <p>Modernized the case management system using React.js</p>
+                </div>
+              </div>
             </Box>
 
             <Box color="white">
-              <p>experience box 2</p>
+              <div className="favorite-language-box no-select">
+                <div className="title-logo">
+                  <Image className="icon no-select " src="/ws.png" alt="img" width={10} height={10} />
+                  <h3>WebstaurantStore</h3>
+                </div>
+                <div className="text-area-column">
+                  <p>Incoming Database Developer Intern <span>Summer 2024</span></p>
+                </div>
+              </div>
             </Box>
 
             <Box color="white">
-              <p>experience box 3</p>
-            </Box>
+              <div className="favorite-language-box no-select">
+                <div className="title-logo">
+                  <Image className="icon no-select " src="/tamid1.png" alt="img" width={10} height={10} />
+                  <h3>TAMID</h3>
+                </div>
+                <div className="text-area-column">
+                  <p>Director of Tech Consulting</p>
+                  <p>Former Project Manager</p>
+                  <p>Work with Israeli startups to deliver MVP each semester</p>
 
+                </div>
+              </div>
+            </Box>
             <Box color="white">
-              <p>experience box 4</p>
-            </Box>
+              <div className="favorite-language-box no-select">
+                <div className="title-logo">
+                  <Image className="icon no-select " src="fin.svg" alt="img" width={10} height={10} />
+                  <h3>Internshark</h3>
+                </div>
+                <div className="text-area-column">
+                  <p>Developed a student-first web application, enabling mass application to over 1,500 internships across the U.S</p>
+                  <p>Built with Vue.js frontend and Express backend, Firebase and Stripe for subscription payments</p>
 
-            <button className="back-btn" onClick={() => { setActiveSection(null) }}>go back</button>
+                </div>
+              </div>
+            </Box>
+            <Image onClick={() => { setActiveSection(null) }} className="back-btn" src="back.svg" alt="back" width={10} height={10} />
+
           </>
 
         );
@@ -151,11 +193,7 @@ export default function Home() {
         ) : activeSection === 'about' ? (
           <p className="header-text">Hello, my name is <span className="name">Seth</span><br />Let me tell you a bit <span className="name">about</span> myself</p>
         ) : activeSection === 'experience' ? (
-          <p className="header-text">Hello, my name is <span className="name">Seth</span><br />Here are some <span className="name">projects</span> i've worked on</p>
-
-        ) : activeSection === 'skills' ? (
-          <p className="header-text">Hello, my name is <span className="name">Seth</span><br />These are the <span className="name">skills</span> i've developed </p>
-
+          <p className="header-text">Hello, my name is <span className="name">Seth</span><br />Here are my projects and <span className="name">experience</span></p>
         ) : (
           <p className="header-text">Hello, my name is <span className="name">Seth</span><br />CS student at <span className="name">UF</span></p>
         )}

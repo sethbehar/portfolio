@@ -5,8 +5,30 @@
         color: white;
 }
 
+/* @media only screen and (max-width: 515px)
+{
+    
+        .box {
+                width: 19rem;
+                height: 10rem;
+        }
+} */
 
+/* iPhone 12, 12 Pro */
+@media only screen 
+  and (min-device-width : 390px) 
+  and (max-device-width : 428px) 
+  and (-webkit-device-pixel-ratio : 3) {
+    /* Styles */
+}
 
+/* iPhone 12 Pro Max */
+@media only screen 
+  and (min-device-width : 428px) 
+  and (max-device-width : 466px) 
+  and (-webkit-device-pixel-ratio : 3) {
+    /* Styles */
+}
 
 .box:hover {
         -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;

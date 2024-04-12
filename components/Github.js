@@ -28,7 +28,7 @@ const Github = () => {
       <ul className='list'>
         {events.map((event, index) => (
           <li key={index}>
-            {event.type === "PushEvent" ? "Commit" : "Pull Request"} in <a href={event.repo.url}>{event.repo.name}</a> on {new Date(event.created_at).toLocaleDateString()}
+            {event.type === "PushEvent" ? "Commit" : "Pull Request"} in <a href={`https://${event.repo.url.replace(/^https:\/\/api\./, "").replace(/\/repos/g, "")}`} target="_blank" rel="noopener noreferrer">{event.repo.name}</a> on {new Date(event.created_at).toLocaleDateString()}
           </li>
         ))}
       </ul>
