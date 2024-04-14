@@ -8,16 +8,19 @@ import Github from "@/components/Github";
 import Media from "@/components/Media";
 import Spotify from "@/components/Spotify";
 import Chess from "@/components/Chess"
+import ContactForm from "@/components/Mail";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState(null);
-  
+  const [mailFormActive, setMailFormActive] = useState(false);
+
   const handleClick = (section) => {
     setActiveSection(section);
   };
 
   const renderMailForm = () => {
-
+    setMailFormActive(!mailFormActive)
+    console.log('false')
   }
 
   const renderInitialBoxes = () => (
@@ -28,7 +31,7 @@ export default function Home() {
           <h1 className="section-title">About</h1>
         </div>
         <p className="about-text no-select">
-          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
+          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a junior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
         </p>
       </Box>
 
@@ -47,21 +50,26 @@ export default function Home() {
         </div>
       </Box>
 
-      <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
-        <div className="title-icon no-select">
-          <Image className="icon" src="source-control.svg" alt="img" width={10} height={10} />
-          <h1 className="section-title">Contact</h1>
-        </div>
-        <div className="contact-info-logos no-select">
-          <a href="https://www.linkedin.com/in/seth-behar/" target="_blank" rel="noopener noreferrer">
-            <Image className="icon-logo" src="linkedin.svg" alt="img" width={10} height={10} />
-          </a>
-          <a href="https://github.com/sethbehar" target="_blank" rel="noopener noreferrer">
-            <Image className="icon-logo" src="github.svg" alt="img" width={10} height={10} />
-          </a>
-          <Image onClick={() => { renderMailForm }} className="icon-logo" src="gmail.svg" alt="img" width={10} height={10} />
-        </div>
-      </Box>
+      {
+        mailFormActive ?
+          <ContactForm renderMailForm={renderMailForm} /> :
+          <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
+            <div className="title-icon no-select">
+              <Image className="icon" src="source-control.svg" alt="img" width={10} height={10} />
+              <h1 className="section-title">Contact</h1>
+            </div>
+            <div className="contact-info-logos">
+              <a href="https://www.linkedin.com/in/seth-behar/" target="_blank" rel="noopener noreferrer">
+                <Image className="icon-logo" src="linkedin.svg" alt="img" width={10} height={10} />
+              </a>
+              <a href="https://github.com/sethbehar" target="_blank" rel="noopener noreferrer">
+                <Image className="icon-logo" src="github.svg" alt="img" width={10} height={10} />
+              </a>
+              <Image onClick={() => renderMailForm()} className="icon-logo" src="gmail.svg" alt="img" width={10} height={10} />
+            </div>
+          </Box>
+      }
+
 
       <Box className="no-select" color="white" animationVariant="fromRight" height="9rem" width="30rem">
         <div className="title-icon no-select">
@@ -115,7 +123,7 @@ export default function Home() {
               <Chess />
             </Box>
 
-            <Image onClick={() => { setActiveSection(null) }} className="back-btn" src="back.svg" alt="back" width={10} height={10} />
+            <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
           </>
         );
       case 'experience':
@@ -124,8 +132,8 @@ export default function Home() {
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
-                  <Image className="icon no-select " src="/ebacon.png" alt="img" width={10} height={10} />
-                  <h3>eBacon</h3>
+                  <Image className="icon no-select " src="/piggy.svg" alt="img" width={10} height={10} />
+                  <a href="https://www.ebacon.com/" target="_blank" rel="noopener noreferrer"><h3>eBacon</h3></a>
                 </div>
                 <div className="text-area-column">
                   <p>Software Developer Intern <span>May 2023 - August 2023</span></p>
@@ -138,8 +146,8 @@ export default function Home() {
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
-                  <Image className="icon no-select " src="/ws.png" alt="img" width={10} height={10} />
-                  <h3>WebstaurantStore</h3>
+                  <Image className="icon-ws no-select " src="/WebstaurantStore.svg" alt="img" width={10} height={10} />
+                  <a href="https://www.webstaurantstore.com/" target="_blank" rel="noopener noreferrer"><h3>WebstaurantStore</h3></a>
                 </div>
                 <div className="text-area-column">
                   <p>Incoming Database Developer Intern <span>Summer 2024</span></p>
@@ -150,8 +158,7 @@ export default function Home() {
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
-                  <Image className="icon no-select " src="/tamid1.png" alt="img" width={10} height={10} />
-                  <h3>TAMID</h3>
+                  <a href="https://tamidgroup.org/" target="_blank" rel="noopener noreferrer"><h3>TAMID</h3></a>
                 </div>
                 <div className="text-area-column">
                   <p>Director of Tech Consulting</p>
@@ -174,7 +181,7 @@ export default function Home() {
                 </div>
               </div>
             </Box>
-            <Image onClick={() => { setActiveSection(null) }} className="back-btn" src="back.svg" alt="back" width={10} height={10} />
+            <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
 
           </>
 

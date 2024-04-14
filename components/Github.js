@@ -10,7 +10,7 @@ const Github = () => {
     const fetchEvents = async () => {
       try {
         const response = await axios.get(`https://api.github.com/users/sethbehar/events`);
-        setEvents(response.data.slice(0, 4));
+        setEvents(response.data.slice(0, 3));
       } catch (error) {
         console.error('Error fetching GitHub events:', error);
       }

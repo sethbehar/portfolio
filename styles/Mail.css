@@ -1,0 +1,38 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+}
+
+label {
+    color: #000;
+    text-align: left;
+}
+
+input {
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: .4rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.form-btn {
+    width: 4rem;
+    height: 2rem;
+    padding: 0.4rem;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    color: white;
+    transition: background-color 0.5s, color 0.5s; /* Smooth transition for background and text color */
+}
+
+.form-btn:hover {
+    background-color: white; /* Inverted background color */
+    color: black;            /* Inverted text color */
+    border: 1px solid black;
+}
