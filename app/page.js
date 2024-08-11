@@ -18,10 +18,10 @@ export default function Home() {
     setActiveSection(section);
   };
 
-  const renderMailForm = () => {
-    setMailFormActive(!mailFormActive)
-    console.log('false')
-  }
+  // const renderMailForm = () => {
+  //   setMailFormActive(!mailFormActive)
+  //   console.log('false')
+  // }
 
   const renderInitialBoxes = () => (
     <>
@@ -52,7 +52,8 @@ export default function Home() {
 
       {
         mailFormActive ?
-          <ContactForm renderMailForm={renderMailForm} /> :
+          // <ContactForm renderMailForm={renderMailForm} /> :
+          <ContactForm /> :
           <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
             <div className="title-icon no-select">
               <Image className="icon" src="source-control.svg" alt="img" width={10} height={10} />
@@ -65,7 +66,7 @@ export default function Home() {
               <a href="https://github.com/sethbehar" target="_blank" rel="noopener noreferrer">
                 <Image className="icon-logo" src="github.svg" alt="img" width={10} height={10} />
               </a>
-              <Image onClick={() => renderMailForm()} className="icon-logo" src="gmail.svg" alt="img" width={10} height={10} />
+              {/* <Image onClick={() => renderMailForm()} className="icon-logo" src="gmail.svg" alt="img" width={10} height={10} /> */}
             </div>
           </Box>
       }
@@ -116,14 +117,13 @@ export default function Home() {
             </Box>
 
             <Box color="white">
-              <Spotify />
+              <button onClick={() => { setActiveSection(null) }} className=" center back-btn">Go Back</button>
             </Box>
 
             <Box color="white">
               <Chess />
             </Box>
 
-            <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
           </>
         );
       case 'experience':
@@ -156,17 +156,7 @@ export default function Home() {
             </Box>
 
             <Box color="white">
-              <div className="favorite-language-box no-select">
-                <div className="title-logo">
-                  <a href="https://tamidgroup.org/" target="_blank" rel="noopener noreferrer"><h3>TAMID</h3></a>
-                </div>
-                <div className="text-area-column">
-                  <p>Director of Tech Consulting</p>
-                  <p>Former Project Manager</p>
-                  <p>Work with Israeli startups to deliver MVP each semester</p>
-
-                </div>
-              </div>
+              <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
             </Box>
             <Box color="white">
               <div className="favorite-language-box no-select">
@@ -181,8 +171,6 @@ export default function Home() {
                 </div>
               </div>
             </Box>
-            <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
-
           </>
 
         );

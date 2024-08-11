@@ -37,8 +37,8 @@ const Chess = () => {
             </div>
             <div className='chess-stats'>
                 <p className='chess-stat no-select'>Rapid Rating: {playerStats.chess_rapid ? playerStats.chess_rapid.last.rating : 'Loading...'}</p>
+                <p className='chess-stat no-select'>Bullet Rating: {playerStats.chess_bullet ? playerStats.chess_bullet.last.rating : 'Loading...'}</p>
                 <p className='chess-stat no-select'>Total Games Played: {Object.keys(playerStats).length > 0 ? getTotalGamesPlayed() : 'Loading...'}</p>
-                <p className='chess-stat no-select'>Last Online: {lastOnline || 'Loading...'}</p>
             </div>
         </div>
     );
