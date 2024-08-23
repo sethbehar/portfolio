@@ -31,7 +31,7 @@ export default function Home() {
           <h1 className="section-title">About</h1>
         </div>
         <p className="about-text no-select">
-          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a junior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
+          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
         </p>
       </Box>
 
