@@ -150,7 +150,10 @@ export default function Home() {
                   <a href="https://www.webstaurantstore.com/" target="_blank" rel="noopener noreferrer"><h3>WebstaurantStore</h3></a>
                 </div>
                 <div className="text-area-column">
-                  <p>Incoming Database Developer Intern <span>Summer 2024</span></p>
+                  <p>Business Intelligence Developer Intern May 2024 - August 2024</p>
+                  <p>Developed detailed data dictionaries for Power BI data models</p>
+                  <p>Created and revised stored procedures, facilitating progression through UAT, code reviews, deployment</p>
+                  <p></p>
                 </div>
               </div>
             </Box>
@@ -165,9 +168,8 @@ export default function Home() {
                   <h3>Internshark</h3>
                 </div>
                 <div className="text-area-column">
-                  <p>Developed a student-first web application, enabling mass application to over 1,500 internships across the U.S</p>
-                  <p>Built with Vue.js frontend and Express backend, Firebase and Stripe for subscription payments</p>
-
+                  <p>Developed a student-first web application, enabling mass application to over 3,000 internships across the U.S</p>
+                  <p>Built with Next.js frontend and Express backend, Firebase and Stripe for payments</p>
                 </div>
               </div>
             </Box>
