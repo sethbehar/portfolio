@@ -164,10 +164,10 @@ export default function Home() {
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
-                  <a href="https://www.internshark.com" style={{ textDecoration: 'none', color: 'inherit'}}>
+                  <a href="https://www.internshark.us" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit' }}>
                     <Image className="icon no-select" src="fin.svg" alt="img" width={10} height={10} />
                   </a>
-                    <h3>Internshark.us</h3>
+                  <h3>Internshark.us</h3>
                 </div>
                 <div className="text-area-column">
                   <p>Developed a student-first web application, enabling mass application to over 3,000 internships across the U.S</p>
