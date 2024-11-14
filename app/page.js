@@ -41,7 +41,7 @@ export default function Home() {
           <h1 className="section-title">Experience</h1>
         </div>
         <div className='logo-container no-select'>
-          <p className="experience-text apricity">Apricity</p>
+          <p className="experience-text apricity">Internos</p>
           <p className="experience-text shopilot">Shopilot</p>
           <p className="experience-text internshark">Internshark</p>
           <p className="experience-text ebacon">eBacon</p>
@@ -83,7 +83,6 @@ export default function Home() {
           <Image className="icon-logo" src="javascript.svg" alt="img" width={10} height={10} />
           <Image className="icon-logo" src="python.svg" alt="img" width={10} height={10} />
           <Image className="icon-logo" src="mongo.svg" alt="img" width={10} height={10} />
-          <Image className="icon-logo" src="node.svg" alt="img" width={10} height={10} />
           <Image className="icon-logo" src="css.svg" alt="img" width={10} height={10} />
           <Image className="icon-logo" src="C++.svg" alt="img" width={10} height={10} />
           <Image className="icon-logo" src="react.svg" alt="img" width={10} height={10} />
