@@ -31,7 +31,7 @@ export default function Home() {
           <h1 className="section-title">About</h1>
         </div>
         <p className="about-text no-select">
-          <WordAnimation className="no-select" text="hi i’m seth, a developer from Florida. i am a senior at the University of Florida studying CS. i am passionate about web apps, startups, sql, and youtube tutorials. i love music and chess." />
+          <WordAnimation className="no-select" text="hi i’m seth, a senior at the University of Florida studying CS. i am passionate about backend engineering, web apps, marathons, and learning. i love music and chess." />
         </p>
       </Box>
 
@@ -54,7 +54,7 @@ export default function Home() {
         mailFormActive ?
           // <ContactForm renderMailForm={renderMailForm} /> :
           <ContactForm /> :
-          <Box color="white" animationVariant="fromBottom" height="9rem" width="30rem">
+          <Box color="white" animationVariant="fromBottom" height="9rem" width="26rem">
             <div className="title-icon no-select">
               <Image className="icon" src="source-control.svg" alt="img" width={10} height={10} />
               <h1 className="section-title">Contact</h1>
@@ -72,7 +72,7 @@ export default function Home() {
       }
 
 
-      <Box className="no-select" color="white" animationVariant="fromRight" height="9rem" width="30rem">
+      <Box className="no-select" color="white" animationVariant="fromRight" height="9rem" width="26rem">
         <div className="title-icon no-select">
           <Image className="icon" src="coding.svg" alt="img" width={10} height={10} />
           <h1 className="section-title">Skills</h1>
@@ -117,11 +117,11 @@ export default function Home() {
             </Box>
 
             <Box color="white">
-              <button onClick={() => { setActiveSection(null) }} className=" center back-btn">Go Back</button>
+              <Chess />
             </Box>
 
             <Box color="white">
-              <Chess />
+              <button onClick={() => { setActiveSection(null) }} className=" center back-btn">Go Back</button>
             </Box>
 
           </>
@@ -152,15 +152,13 @@ export default function Home() {
                 <div className="text-area-column">
                   <p>Business Intelligence Developer Intern May 2024 - August 2024</p>
                   <p>Developed detailed data dictionaries for Power BI data models</p>
-                  <p>Created and revised stored procedures, facilitating progression through UAT, code reviews, deployment</p>
+                  <p>Created, revised, and deployed stored procedures</p>
                   <p></p>
                 </div>
               </div>
             </Box>
 
-            <Box color="white">
-              <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
-            </Box>
+            
             <Box color="white">
               <div className="favorite-language-box no-select">
                 <div className="title-logo">
@@ -170,10 +168,14 @@ export default function Home() {
                   <h3>Internshark.us</h3>
                 </div>
                 <div className="text-area-column">
-                  <p>Developed a student-first web application, enabling mass application to over 3,000 internships across the U.S</p>
-                  <p>Built with Next.js frontend and Express.js/PostgreSQL backend, Firebase, and Stripe for payments</p>
+                  <p>Developed a student-first web application, enabling mass application to over 4500 internships across the U.S</p>
+                  <p>Built with Next.js, Express.js/PostgreSQL, Firebase, and Stripe</p>
                 </div>
               </div>
+            </Box>
+
+            <Box color="white">
+              <button onClick={() => { setActiveSection(null) }} className="back-btn">Go Back</button>
             </Box>
           </>
 
