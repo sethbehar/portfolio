@@ -6,6 +6,7 @@ import {
 import { useCallback } from 'react';
 import { useAuth } from '@clerk/clerk-react';
 import BackButton from '../components/BackButton'
+
 const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_TEST_PUBLISHABLE_KEY
 );
