@@ -22,14 +22,13 @@ const App = () => {
       try {
         const token = await getToken();
 
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users`, {
+        await fetch(`${import.meta.env.VITE_BACKEND_URL}/users`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
           },
         });
-        console.log('status ', res.status);
       } catch (err) {
         console.error('error in upsert effect', err);
       }
@@ -47,7 +46,6 @@ const App = () => {
             "Content-Type": "application/json",},
       }
       );
-      console.log(res)
       if (res.ok) {
         const data = await res.json();
         const first = data[0]
