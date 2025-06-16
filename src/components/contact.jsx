@@ -25,7 +25,7 @@ const Contact = ({ user, isLoaded }) => {
 
      const handleSubmit = (e) => {
        e.preventDefault();
-       console.log('Form Data:', formData);
+       //console.log('Form Data:', formData);
        // Here you would handle form submission (e.g., sending data to a server)
      };
   return (
