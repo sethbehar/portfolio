@@ -8,7 +8,7 @@ import { useAuth } from '@clerk/clerk-react';
 import BackButton from '../components/BackButton'
 
 const stripePromise = loadStripe(
-  import.meta.env.STRIPE_PROD_PUBLISHABLE_KEY
+  import.meta.env.VITE_STRIPE_PROD_PUBLISHABLE_KEY
 );
 
 export default function Payment() {
