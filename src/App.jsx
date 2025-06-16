@@ -33,13 +33,28 @@ const App = () => {
       } catch (err) {
         console.error('error in upsert effect', err);
       }
-    })(); 
+    })();
   }, [user, getToken]);
 
   useEffect(() => {
-    setIsPaid(true)
-  }, [user])
+    if (!user) return;
+    (async () => {
+      const token = await getToken();
 
+      console.log(`${import.meta.env.VITE_BACKEND_URL}/get-user-status`)
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-user-status`, {
+        headers: { Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",},
+      }
+      );
+      console.log(res)
+      if (res.ok) {
+        const data = await res.json();
+        const first = data[0]
+        setIsPaid(first.isPaid)
+      }
+    })();
+  }, [user, getToken]);
 
 
   return (
@@ -47,11 +62,11 @@ const App = () => {
       {/* HOME ROUTE */}
       <Route path="/" element={
         <div className=''>
-          <Hero  isPaid={isPaid} user={user} isLoaded={isLoaded}/>
+          <Hero isPaid={isPaid} user={user} isLoaded={isLoaded} />
           <About isPaid={isPaid} />
-          <Resume isPaid={isPaid}/>
-          <Contact isPaid={isPaid} user={user} isLoaded={isLoaded}/>
-        </div>} 
+          <Resume isPaid={isPaid} />
+          <Contact isPaid={isPaid} user={user} isLoaded={isLoaded} />
+        </div>}
       />
       {/* ROUTES ASIDE FROM MAIN ROUTE*/}
       <Route path='/payment' element={<Payment />} />
