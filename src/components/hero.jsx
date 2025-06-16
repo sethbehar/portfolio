@@ -5,11 +5,9 @@ import { Link } from 'react-router-dom';
 import {
   SignInButton,
   UserButton,
-  useUser,
 } from "@clerk/clerk-react";
 
-export default function Hero({ isPaid }) {
-  const { isLoaded, user } = useUser();
+export default function Hero({ isPaid, user, isLoaded }) {
 
   return (
     <div

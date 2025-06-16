@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
-import { useUser } from '@clerk/clerk-react';
 import { ToastContainer, toast } from 'react-toastify';
  
-const Contact = () => {
+const Contact = ({ user, isLoaded }) => {
 
   const notify = () => toast.info('Please sign in', {
                           position: "top-right",
@@ -15,8 +14,6 @@ const Contact = () => {
                           progress: undefined,
                           theme: "light",
                         });
-
-  const { isLoaded , user } = useUser();
 
   const [formData, setFormData] = useState({
        message: '',

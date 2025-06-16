@@ -1,9 +1,7 @@
-import { useUser } from '@clerk/clerk-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
-const About = () => {
 
-  const { user } = useUser()
+const About = ({ isPaid }) => {
 
   return (
     <div
@@ -21,13 +19,13 @@ const About = () => {
       {/* Right Side Text */}
       <div className="text-center md:text-left max-w-sm flex flex-col gap-4">
         <p className='select-none'>I created this site with <span className='text-blue-700'>React + Vite</span>, <span className='text-blue-500'>PostgreSQL</span>, <span className='text-green-800'>node.js</span>, and <span className='text-purple-600'>Stripe</span></p>
-        {user ? <Link to={'/payment'} className="select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
-          Unlock More
-        </Link>
-        : <button className="flex flex-row gap-2 select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
-          <img src='/lock.svg' alt='x' width={15} height={15} className=''/>
-          <span>Unlock More</span>
-        </button> }
+        {isPaid ? <div className="select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
+          Full site unlocked
+        </div>
+        : <Link to={'/payment'} className="flex flex-row gap-2 select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
+          <img src='/unlock.svg' alt='x' width={20} height={20} className=''/>
+          <span>Unlock</span>
+        </Link> }
       </div>
     </div>
   )

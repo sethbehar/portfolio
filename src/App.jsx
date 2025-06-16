@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Hero from './components/hero';
 import About from './components/about';
 import Resume from './components/resume';
@@ -11,9 +11,9 @@ import ResumePage from './components/resumePage';
 import AboutPage from './components/aboutPage';
 
 const App = () => {
-  const { user } = useUser()
+  const { isLoaded, user } = useUser()
   const { getToken } = useAuth()
-
+  const [isPaid, setIsPaid] = useState(false)
 
   useEffect(() => {
     if (!user) return;
@@ -36,15 +36,21 @@ const App = () => {
     })(); 
   }, [user, getToken]);
 
+  useEffect(() => {
+    setIsPaid(true)
+  }, [user])
+
+
+
   return (
     <Routes>
       {/* HOME ROUTE */}
       <Route path="/" element={
         <div className=''>
-          <Hero />
-          <About />
-          <Resume />
-          <Contact />
+          <Hero  isPaid={isPaid} user={user} isLoaded={isLoaded}/>
+          <About isPaid={isPaid} />
+          <Resume isPaid={isPaid}/>
+          <Contact isPaid={isPaid} user={user} isLoaded={isLoaded}/>
         </div>} 
       />
       {/* ROUTES ASIDE FROM MAIN ROUTE*/}
