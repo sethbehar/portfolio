@@ -61,9 +61,9 @@ const App = () => {
       <Route path="/" element={
         <div className=''>
           <Hero isPaid={isPaid} user={user} isLoaded={isLoaded} />
-          <About isPaid={isPaid} />
+          <About isPaid={isPaid} user={user}/>
           <Resume isPaid={isPaid} />
-          <Contact isPaid={isPaid} user={user} isLoaded={isLoaded} />
+          <Contact isPaid={isPaid} user={user} />
         </div>}
       />
       {/* ROUTES ASIDE FROM MAIN ROUTE*/}

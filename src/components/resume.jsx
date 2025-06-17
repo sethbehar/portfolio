@@ -21,7 +21,7 @@ const Resume = ({ isPaid }) => {
         }
       </div>
 
-      {/* Right Side Text */}
+      {/* Middle Side Text */}
       <div className="select-none text-center md:text-left max-w-sm flex flex-col gap-4">
         <p className=''>View my diploma</p>
         {isPaid ? <Link to='/diploma' className="border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
@@ -31,6 +31,20 @@ const Resume = ({ isPaid }) => {
           <button className="flex flex-row gap-2 border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
             <img src='/lock.svg' alt='x' width={15} height={15} />
             <span>Diploma</span>
+          </button>
+        }
+      </div>
+
+      {/* Right Side Text */}
+      <div className="select-none text-center md:text-left max-w-sm flex flex-col gap-4">
+        <p className=''>View my hobbies</p>
+        {isPaid ? <Link to='/hobbies' className="border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
+          Hobbies
+        </Link>
+          :
+          <button className="flex flex-row gap-2 border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
+            <img src='/lock.svg' alt='x' width={15} height={15} />
+            <span>Hobbies</span>
           </button>
         }
       </div>

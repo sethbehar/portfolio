@@ -1,62 +1,89 @@
-import React from 'react'
-import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
- 
-const Contact = ({ user, isLoaded }) => {
+import React, { useEffect, useRef, useState } from "react";
 
-  const notify = () => toast.info('Please sign in', {
-                          position: "top-right",
-                          autoClose: 1500,
-                          hideProgressBar: false,
-                          closeOnClick: false,
-                          pauseOnHover: true,
-                          draggable: true,
-                          progress: undefined,
-                          theme: "light",
-                        });
+const Contact = ({ user }) => {
+  const [errorMessage, setErrorMessage] = useState("");
+  const [formData, setFormData] = useState({ message: "" });
 
-  const [formData, setFormData] = useState({
-       message: '',
-     });
+  // track timestamp of last successful submit
+  const lastSubmitRef = useRef(0);
 
-     const handleChange = (e) => {
-       setFormData({ ...formData, [e.target.name]: e.target.value });
-     };
+  useEffect(() => {
+    // clear errors whenever user signs in/out
+    setErrorMessage("");
+  }, [user]);
 
-     const handleSubmit = (e) => {
-       e.preventDefault();
-       //console.log('Form Data:', formData);
-       // Here you would handle form submission (e.g., sending data to a server)
-     };
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (errorMessage && formData.message.length >= 20) {
+      setErrorMessage("");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!user) {
+      return setErrorMessage("Please sign in");
+    }
+
+    const now = Date.now();
+    if (now - lastSubmitRef.current < 10_000) {
+      return setErrorMessage("Please wait");
+    }
+    if (formData.message.trim().length < 20) {
+      return setErrorMessage("Write something meaningful");
+    }
+
+    console.log("Sending message:", formData.message);
+    // api call here
+
+    lastSubmitRef.current = now;
+    setFormData({ message: "" });
+    setErrorMessage("");
+  };
+
   return (
     <div
-      id='contact'
-      className="select-none min-h-screen bg-cover bg-center flex flex-col md:flex-col items-center justify-center px-6 py-12 g-2 text-xl"
+      id="contact"
+      className="select-none min-h-screen bg-cover bg-center flex flex-col items-center justify-center px-6 py-12 text-xl"
       style={{ backgroundImage: "url('/bg.png')" }}
     >
-      <h1 className='mb-4 select-none'>Contact Me</h1>
-       <form onSubmit={handleSubmit} className='flex flex-col gap-4 text-md'>
-           <textarea
-            className='resize-none border-2 p-2'
-            rows={5}
-            cols={30}
-            placeholder='Dear seth...'
-             name="message"
-             value={formData.message}
-             onChange={handleChange}
-           />
-         {user & isLoaded ?
-          <button type="submit" className="flex flex-row gap-2 border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">Submit</button>
-         :
-            <button onClick={notify}className="flex flex-row gap-2 border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
-              <span>Submit</span>
-              <img src='/lock.svg' alt='x' width={25} height={25} />
-            </button>
-        }
-       </form>
-        <ToastContainer/>
-    </div>
-  )
-}
+      <h1 className="mb-4">Contact Me</h1>
 
-export default Contact
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4 text-md">
+        <textarea
+          className="resize-none border-2 p-2"
+          rows={5}
+          cols={30}
+          placeholder="Dear Seth..."
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+        />
+
+        <button
+          type="submit"
+          className="flex items-center gap-2 border-2 border-black rounded-2xl px-4 py-2 self-center hover:shadow-2xl transition duration-300"
+        >
+          {user ? (
+            "Submit"
+          ) : (
+            <>
+              <span>Submit</span>
+              <img src="/lock.svg" alt="locked" width={25} height={25} />
+            </>
+          )}
+        </button>
+
+        {errorMessage && (
+          <div className="flex items-center justify-center gap-2 text-red-500">
+            <img src="/info.svg" alt="error" width={25} height={25} />
+            <span>{errorMessage}</span>
+          </div>
+        )}
+      </form>
+    </div>
+  );
+};
+
+export default Contact;

@@ -1,7 +1,8 @@
+import { SignInButton } from '@clerk/clerk-react'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const About = ({ isPaid }) => {
+const About = ({ isPaid, user }) => {
 
   return (
     <div
@@ -22,10 +23,17 @@ const About = ({ isPaid }) => {
         {isPaid ? <div className="select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
           Full site unlocked
         </div>
-        : <Link to={'/payment'} className="flex flex-row gap-2 select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
-          <img src='/unlock.svg' alt='x' width={20} height={20} className=''/>
-          <span>Unlock</span>
-        </Link> }
+          : user ? <Link to={'/payment'} className="flex flex-row gap-2 select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300">
+            <img src='/unlock.svg' alt='x' width={20} height={20} className='' />
+            <span>Unlock</span>
+          </Link>
+            : <SignInButton>
+              <div className='flex flex-row gap-2 select-none border-2 border-black rounded-2xl px-4 py-2 self-center cursor-pointer hover:shadow-2xl transition duration-300'>
+                <img src='/unlock.svg' alt='x' width={20} height={20} className='' />
+                <span>Sign in to unlock</span>
+              </div>
+            </SignInButton>
+        }
       </div>
     </div>
   )
