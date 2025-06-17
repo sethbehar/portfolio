@@ -12,49 +12,55 @@ export default function ScatterText({ style }) {
   const prevEvent = useRef(0);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+  if (!containerRef.current) return;
 
-    const heading = containerRef.current.querySelector(".p");
-    if (!heading) return;
+  const paragraphs = containerRef.current.querySelectorAll(".p");
+  if (!paragraphs.length) return;
 
-    const { chars } = splitText(heading);
+  const allChars = [];
 
-    const handlePointerMove = (event) => {
-      const now = performance.now();
-      const timeSinceLastEvent = (now - prevEvent.current) / 1000; // seconds
-      prevEvent.current = now;
-      velocityX.set(event.movementX / timeSinceLastEvent);
-      velocityY.set(event.movementY / timeSinceLastEvent);
-    };
+  paragraphs.forEach((para) => {
+    const { chars } = splitText(para);
+    allChars.push(...chars);
+  });
 
-    document.addEventListener("pointermove", handlePointerMove);
+  const handlePointerMove = (event) => {
+    const now = performance.now();
+    const timeSinceLastEvent = (now - prevEvent.current) / 1000; // seconds
+    prevEvent.current = now;
+    velocityX.set(event.movementX / timeSinceLastEvent);
+    velocityY.set(event.movementY / timeSinceLastEvent);
+  };
 
-    hover(chars, (element) => {
-      const speed = Math.sqrt(
-        velocityX.get() * velocityX.get() +
-          velocityY.get() * velocityY.get()
-      );
-      const angle = Math.atan2(velocityY.get(), velocityX.get());
-      const distance = speed * 0.1;
+  document.addEventListener("pointermove", handlePointerMove);
 
-      animate(
-        element,
-        {
-          x: Math.cos(angle) * distance,
-          y: Math.sin(angle) * distance,
-        },
-        { type: "spring", stiffness: 100, damping: 50 }
-      );
-    });
+  hover(allChars, (element) => {
+    const speed = Math.sqrt(
+      velocityX.get() * velocityX.get() + velocityY.get() * velocityY.get()
+    );
+    const angle = Math.atan2(velocityY.get(), velocityX.get());
+    const distance = speed * 0.1;
 
-    return () => {
-      document.removeEventListener("pointermove", handlePointerMove);
-    };
-  }, []);
+    animate(
+      element,
+      {
+        x: Math.cos(angle) * distance,
+        y: Math.sin(angle) * distance,
+      },
+      { type: "spring", stiffness: 100, damping: 50 }
+    );
+  });
+
+  return () => {
+    document.removeEventListener("pointermove", handlePointerMove);
+  };
+}, []);
+
 
   return (
     <div className={style} ref={containerRef}>
-      <p className="p">I'm a backend software engineer with a passion for building</p>
+      <p className="p">I'm a software engineer with a passion for building</p>
+      <p className="p">The features of this site are hidden behind a paywall</p>
       <Stylesheet />
     </div>
   );

@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useAuth } from "@clerk/clerk-react";
 
 const Contact = ({ user }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({ message: "" });
+  const { getToken } = useAuth();
 
   // track timestamp of last successful submit
   const lastSubmitRef = useRef(0);
@@ -12,14 +14,14 @@ const Contact = ({ user }) => {
     setErrorMessage("");
   }, [user]);
 
-  const handleChange = (e) => {
+  const handleChange = (e)  => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     if (errorMessage && formData.message.length >= 20) {
       setErrorMessage("");
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!user) {
@@ -35,7 +37,15 @@ const Contact = ({ user }) => {
     }
 
     console.log("Sending message:", formData.message);
-    // api call here
+    const token = await getToken();
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/contact`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({ message: formData.message }),
+    });
 
     lastSubmitRef.current = now;
     setFormData({ message: "" });

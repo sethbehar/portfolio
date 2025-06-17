@@ -9,6 +9,7 @@ import { useAuth, useUser } from '@clerk/clerk-react';
 import { useEffect } from 'react';
 import ResumePage from './components/resumePage';
 import AboutPage from './components/aboutPage';
+import HobbiesPage from './components/hobbiesPage';
 
 const App = () => {
   const { isLoaded, user } = useUser()
@@ -68,9 +69,8 @@ const App = () => {
       />
       {/* ROUTES ASIDE FROM MAIN ROUTE*/}
       <Route path='/payment' element={<Payment />} />
-      <Route path="/hobbies" element={<></>} />
+      <Route path="/hobbies" element={<HobbiesPage />} />
       <Route path="/resume" element={<ResumePage />} />
-      <Route path="/diploma" element={<></>} />
       <Route path="/about" element={<AboutPage />} />
     </Routes>
   )
