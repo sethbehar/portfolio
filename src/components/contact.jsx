@@ -36,7 +36,7 @@ const Contact = ({ user }) => {
       return setErrorMessage("Write something meaningful");
     }
 
-    console.log("Sending message:", formData.message);
+    
     const token = await getToken();
     await fetch(`${import.meta.env.VITE_BACKEND_URL}/contact`, {
       method: "POST",

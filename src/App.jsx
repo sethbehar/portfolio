@@ -41,7 +41,6 @@ const App = () => {
     (async () => {
       const token = await getToken();
 
-      console.log(`${import.meta.env.VITE_BACKEND_URL}/get-user-status`)
       const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/get-user-status`, {
         headers: { Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",},
