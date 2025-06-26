@@ -11,6 +11,16 @@ const stripePromise = loadStripe(
   import.meta.env.VITE_STRIPE_PROD_PUBLISHABLE_KEY
 );
 
+  // const stripe = await stripePromise;
+  // const response = await fetch('/create-checkout-session', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ priceId: 'price_ABC', customerEmail: user.email })
+  // });
+  // const { sessionId } = await response.json();
+  // const { error } = await stripe.redirectToCheckout({ sessionId });
+  // if (error) console.error('Stripe checkout error:', error);
+
 export default function Payment() {
   const { getToken } = useAuth();
 
@@ -19,7 +29,7 @@ export default function Payment() {
     const token = await getToken();
     // 2) call your endpoint with the header
     const res = await fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/create-checkout-session`,
+      `http://localhost:8000/create-checkout-session`,
       {
         method: 'POST',
         headers: {
