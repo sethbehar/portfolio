@@ -10,7 +10,7 @@ import { useEffect } from 'react';
 import ResumePage from './components/resumePage';
 import AboutPage from './components/aboutPage';
 import HobbiesPage from './components/hobbiesPage';
-
+import Projects from './components/Projects';
 const App = () => {
   const { isLoaded, user } = useUser()
   const { getToken } = useAuth()
@@ -63,7 +63,9 @@ const App = () => {
           <Hero isPaid={isPaid} user={user} isLoaded={isLoaded} />
           <About isPaid={isPaid} user={user}/>
           <Resume isPaid={isPaid} />
+          <Projects />
           <Contact isPaid={isPaid} user={user} />
+
         </div>}
       />
       {/* ROUTES ASIDE FROM MAIN ROUTE*/}
