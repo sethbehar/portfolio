@@ -59,8 +59,8 @@ export default function ScatterText({ style }) {
 
   return (
     <div className={style} ref={containerRef}>
-      <p className="p">I'm a software engineer with a passion for building</p>
-      <p className="p">I turned my portfolio into a SaaS. The features are hidden behind a payawall :)</p>
+      <p className="p">I'm a full stack software engineer</p>
+      <p className="p">I turned my portfolio into a SaaS. The features are hidden behind a payawall</p>
       <Stylesheet />
     </div>
   );
