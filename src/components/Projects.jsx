@@ -22,11 +22,12 @@ const Projects = () => {
             <h1>Projects</h1>
             <div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <Card title={'Mailview'} description={'Job application management platform'} link={'https://mailview.us'} img={'/mailview.png'}/>
                     <Card title={'Internshark'} description={'A platform for finding internships'} link={'https://internshark.us'} img={'/internshark.svg'}/>
                     <Card title={'SaaS Docs'} description={'Documentation and template repo for building SaaS applications'} link={'https://saasdocs.vercel.app'} img={'/saasdocs.png'}/>
                     <Card title={'Internos'} description={'AI powered internship matching platform'} link={'https://internos.vercel.app'} img={'/internos.png'}/>
                 </div>
-            </div>
+            </div> 
         </div>
     )
 }

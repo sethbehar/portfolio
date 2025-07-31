@@ -78,13 +78,13 @@ export default function Hero({ isPaid, user, isLoaded }) {
         </div>
 
         {/* LinkedIn Icon */}
-        <div className="mt-6">
-          <a
-            href="https://www.linkedin.com/in/seth-behar" target="_blank"
-            className="inline-flex items-center justify-center w-12 h-12 rounded-full hover:bg-black/5 transition-colors border-[1px]"
-          >
-            <Linkedin className="w-6 h-6 text-[#2349ff]" />
-          </a>
+        <div className="flex flex-row items-center gap-8 ">
+          <div className="">
+           <img src="/linkedin.png" alt="LinkedIn" className="w-8 h-8 cursor-pointer" onClick={() => window.open("https://www.linkedin.com/in/seth-behar", "_blank")}/>
+          </div>
+          <div className="">
+           <img src="/git.png" alt="GitHub" className="w-8 h-8 cursor-pointer" onClick={() => window.open("https://github.com/seth-behar", "_blank")}/>
+          </div>
         </div>
       </main>
     </div>
